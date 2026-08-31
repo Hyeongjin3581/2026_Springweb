@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.1.1'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'springweb'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies { //의존성 {} 안에 프로젝트 내 추가할 라이브러리 코드 삽입. -> 자동으로 라이브로리 설치
+	//	1. springboot 
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+	//2. jdbc
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	// 3. Spring Boot DevTools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//4. 롬복
+	compileOnly 'org.projectlombok:lombok'
+  	annotationProcessor 'org.projectlombok:lombok'
+
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+springBoot {
+    mainClass = 'springweb.SpringwebApplication'
+}
