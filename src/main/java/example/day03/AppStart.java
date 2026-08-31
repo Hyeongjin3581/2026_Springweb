@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AppStart {
     public static void main(String[] args) {
         SpringApplication.run(AppStart.class); // 클래스명.class 리플렉션
-        // 실행 --> http://localhost:8080
+        // 실행 --> http://localhost:8080/day03/task1 , http://localhost:8080/day03/task2 , http://localhost:8080/day03/task3 ,
+        //                http://localhost:8080/day03/task4 , http://localhost:8080/day03/task5 ,http://localhost:8080/day03/task6 (오류나와야 함.)
+        
     }
 }
+
