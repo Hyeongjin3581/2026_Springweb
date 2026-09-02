@@ -1,4 +1,4 @@
-package example.day04;
+package example.Practice1;
 
 import java.util.ArrayList;
 
