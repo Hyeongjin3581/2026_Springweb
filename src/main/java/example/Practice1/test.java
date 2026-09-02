@@ -21,12 +21,12 @@ import lombok.NoArgsConstructor;
 @RequestMapping("/test")
 public class test {
 
-    @PostMapping
+    @PostMapping //1
     public boolean testWrite( @RequestBody TestDto testDto ){
         return true;
     }
 
-    @GetMapping
+    @GetMapping  //2
     public ArrayList<TestDto>testPrint(){
         System.out.println("TestController.testPrint()");
         ArrayList<TestDto> list = new ArrayList<>();
