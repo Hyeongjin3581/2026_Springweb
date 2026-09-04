@@ -1,7 +1,5 @@
 package example.Practice3;
 
-import example.Practice3.AppStart;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
