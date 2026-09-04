@@ -1,4 +1,4 @@
-package example.miniproject2DB;
+package example.minipro2;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

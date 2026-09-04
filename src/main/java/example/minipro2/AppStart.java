@@ -1,4 +1,4 @@
-package example.miniproject2DB;
+package example.minipro2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
