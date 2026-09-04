@@ -37,7 +37,3 @@ dependencies { //의존성 {} 안에 프로젝트 내 추가할 라이브러리 
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-springBoot {
-    mainClass = 'example.day06.AppStart'
-}

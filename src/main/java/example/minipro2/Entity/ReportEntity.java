@@ -1,5 +1,37 @@
 package example.minipro2.Entity;
 
-public class ReportEntity {
+import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "report")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class ReportEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer report_id;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "r_no")
+	private RentalEntity rental;
+
+	private String report_type;
+	private String description;
+	private LocalDateTime created_at;
+	private String status;
 }

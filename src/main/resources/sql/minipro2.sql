@@ -1,5 +1,5 @@
 -- ============================================
--- SmartLocker 프로젝트 DB 전체 초기화
+-- SmartLocker 프로젝트 DB 및 초기 데이터 설정
 -- ============================================
 
 CREATE DATABASE IF NOT EXISTS minipro2
@@ -9,25 +9,10 @@ USE minipro2;
 
 
 -- ============================================
--- 기존 테이블 삭제
--- ============================================
-
-SET FOREIGN_KEY_CHECKS = 0;
-
-DROP TABLE IF EXISTS report;
-DROP TABLE IF EXISTS rental;
-DROP TABLE IF EXISTS equipment;
-DROP TABLE IF EXISTS locker;
-DROP TABLE IF EXISTS users;
-
-SET FOREIGN_KEY_CHECKS = 1;
-
-
--- ============================================
 -- 1. 회원 테이블
 -- ============================================
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     u_no INT AUTO_INCREMENT,
     u_pwd VARCHAR(15) NOT NULL,
     u_phone VARCHAR(20) NOT NULL,
@@ -47,13 +32,16 @@ CREATE TABLE users (
 -- 2. 보관함 테이블
 -- ============================================
 
-CREATE TABLE locker (
+CREATE TABLE IF NOT EXISTS locker (
     l_no INT AUTO_INCREMENT,
     l_location VARCHAR(30) NOT NULL,
     l_status VARCHAR(10) NOT NULL DEFAULT '닫힘',
 
     CONSTRAINT pk_locker
         PRIMARY KEY (l_no),
+
+    CONSTRAINT uk_locker_location
+        UNIQUE (l_location),
 
     CONSTRAINT chk_locker_status
         CHECK (l_status IN ('열림', '닫힘'))
@@ -64,7 +52,7 @@ CREATE TABLE locker (
 -- 3. 장비 테이블
 -- ============================================
 
-CREATE TABLE equipment (
+CREATE TABLE IF NOT EXISTS equipment (
     e_no INT AUTO_INCREMENT,
     e_name VARCHAR(50) NOT NULL,
     e_category VARCHAR(30) NOT NULL,
@@ -88,7 +76,7 @@ CREATE TABLE equipment (
 -- 4. 대여 테이블
 -- ============================================
 
-CREATE TABLE rental (
+CREATE TABLE IF NOT EXISTS rental (
     r_no INT AUTO_INCREMENT,
     u_no INT NOT NULL,
     e_no INT NOT NULL,
@@ -100,6 +88,9 @@ CREATE TABLE rental (
     -- 대여 기본키
     CONSTRAINT pk_rental
         PRIMARY KEY (r_no),
+
+    CONSTRAINT uk_rental_sample
+        UNIQUE (u_no, e_no, r_date),
     -- 회원 외래키
     CONSTRAINT fk_rental_users
         FOREIGN KEY (u_no)
@@ -137,7 +128,7 @@ CREATE TABLE rental (
 -- 5. 신고 테이블
 -- ============================================
 
-CREATE TABLE report (
+CREATE TABLE IF NOT EXISTS report (
     report_id INT AUTO_INCREMENT,
     r_no INT NOT NULL,
     report_type VARCHAR(20) NOT NULL,
@@ -146,6 +137,9 @@ CREATE TABLE report (
     status VARCHAR(20) NOT NULL DEFAULT '접수',
     CONSTRAINT pk_report
         PRIMARY KEY (report_id),
+
+    CONSTRAINT uk_report_sample
+        UNIQUE (r_no, report_type),
     -- Rental FK
     CONSTRAINT fk_report_rental
         FOREIGN KEY (r_no)
@@ -175,7 +169,7 @@ CREATE TABLE report (
 -- 6. 회원 샘플 데이터
 -- ============================================
 
-INSERT INTO users
+INSERT IGNORE INTO users
 (
     u_no,
     u_pwd,
@@ -201,7 +195,7 @@ VALUES
 -- 7. 보관함 샘플 데이터
 -- ============================================
 
-INSERT INTO locker
+INSERT IGNORE INTO locker
 (
     l_location,
     l_status
@@ -223,7 +217,7 @@ VALUES
 -- 8. 장비 샘플 데이터
 -- ============================================
 
-INSERT INTO equipment
+INSERT IGNORE INTO equipment
 (
     e_name,
     e_category,
@@ -247,7 +241,7 @@ VALUES
 -- 9. 대여 샘플 데이터
 -- ============================================
 
-INSERT INTO rental
+INSERT IGNORE INTO rental
 (
     u_no,
     e_no,
@@ -344,7 +338,7 @@ VALUES
 -- 10. 신고 샘플 데이터
 -- ============================================
 
-INSERT INTO report
+INSERT IGNORE INTO report
 (
     r_no,
     report_type,

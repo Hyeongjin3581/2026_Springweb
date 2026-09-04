@@ -1,11 +1,9 @@
 package example.minipro2.Entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.Practice3.BaseTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,7 +26,7 @@ import lombok.ToString;
 @Table(name="rental")
 @NoArgsConstructor @AllArgsConstructor @Builder 
 @Getter @Setter 
-public class RentalEntity extends BaseTime{
+public class RentalEntity {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
