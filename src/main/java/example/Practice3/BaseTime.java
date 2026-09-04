@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class) // Jpa AuditingEntity 등록
 public class BaseTime {
     //1. 레코드 생성시점
     @CreatedDate

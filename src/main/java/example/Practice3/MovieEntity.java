@@ -20,6 +20,7 @@ public class MovieEntity extends BaseTime{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer movieid;
+    // 교수님은 ( nullable = false ) 넣으셔서 Not null 만드심. 
     private String title;
     private String director;
     private String releasedate;

@@ -45,6 +45,7 @@ public class MovieController {
 
     // 5. 특정 영화 삭제
     @DeleteMapping("/movie")
+    // 교수님은 @RequestParam 으로 값 추출이 아닌 @PathVariavle로 Url 경로상에서 식별자 값 추출하여 가져옴.
     public boolean 영화삭제(@RequestParam(name="movieid")Integer movieid){
         return movieService.영화삭제(movieid);
     }
