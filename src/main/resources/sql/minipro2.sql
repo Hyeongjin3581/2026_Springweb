@@ -8,6 +8,12 @@ DEFAULT CHARACTER SET utf8mb4;
 USE minipro2;
 
 
+-- day06 전용 테이블은 day06 데이터베이스에서 관리합니다.
+DROP TABLE IF EXISTS reply;
+DROP TABLE IF EXISTS board;
+DROP TABLE IF EXISTS category;
+
+
 -- ============================================
 -- 1. 회원 테이블
 -- ============================================

@@ -5,10 +5,13 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -34,8 +37,11 @@ public class EquipmentEntity {
     private String e_category;
     @Column(length = 20)
     private String e_status;
-    @Column(name = "l_no", nullable = false)
-    private Integer l_no;
+    
+    // Locker를 Fk함. (1 : 1 구조)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "l_no", nullable = false, unique = true)
+    private LockerEntity locker;
 
     // Equipment 1 : N Rental
     @OneToMany(mappedBy = "equipment")
