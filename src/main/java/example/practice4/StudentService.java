@@ -1,6 +1,6 @@
 package example.practice4;
 
  
-public class Service {
+public class StudentService {
 
 }
