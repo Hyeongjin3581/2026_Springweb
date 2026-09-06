@@ -13,8 +13,16 @@ import lombok.ToString;
 @NoArgsConstructor @AllArgsConstructor 
 @Getter @Setter @ToString @Builder 
 public class EnrollDto {
+
     private Integer enrollId;
     private String status;
+
+    private Integer courseId;
+    private String courseName;
+
+    private Integer studentId;
+    private String studentName;
+
     private LocalDateTime createDate;
     private  LocalDateTime upDateTime;
 
@@ -28,6 +36,14 @@ public class EnrollDto {
         return EnrollDto.builder()
         .enrollId(enrollEntity.getEnrollId())
         .status(enrollEntity.getStatus())
+        
+        // Course 정보
+        .courseId(enrollEntity.getCourseEntity().getCourseId())
+        .courseName(enrollEntity.getCourseEntity().getCourseName())
+        // Student 정보
+        .studentId(enrollEntity.getStudentEntity().getStudentId())
+        .studentName(enrollEntity.getStudentEntity().getStudentName())
+
         .createDate(enrollEntity.getCreateDate())
         .upDateTime(enrollEntity.getUpDateTime())
         .build();
