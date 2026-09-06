@@ -24,7 +24,7 @@ public class EnrollEntity extends BaseTime{
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
 
-    private Integer enrollID;
+    private Integer enrollId;
 
     private String status;
 
