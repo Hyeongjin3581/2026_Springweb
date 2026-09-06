@@ -1,8 +1,8 @@
-package example.practice4.Dto;
+package example.Practice4.Dto;
 
 import java.time.LocalDateTime;
 
-import example.practice4.Entity.StudentEntity;
+import example.Practice4.Entity.StudentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

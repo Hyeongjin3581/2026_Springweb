@@ -1,4 +1,4 @@
-package example.practice4;
+package example.Practice4;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import example.practice4.Dto.CourseDto;
-import example.practice4.Dto.EnrollDto;
-import example.practice4.Dto.StudentDto;
+import example.Practice4.Dto.CourseDto;
+import example.Practice4.Dto.EnrollDto;
+import example.Practice4.Dto.StudentDto;
 
 @RestController
 public class P4Controller {

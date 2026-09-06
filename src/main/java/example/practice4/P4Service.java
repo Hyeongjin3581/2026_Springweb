@@ -1,20 +1,20 @@
-package example.practice4;
+package example.Practice4;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import example.practice4.Dto.CourseDto;
-import example.practice4.Dto.EnrollDto;
-import example.practice4.Dto.StudentDto;
-import example.practice4.Entity.CourseEntity;
-import example.practice4.Entity.EnrollEntity;
-import example.practice4.Entity.StudentEntity;
-import example.practice4.Repository.CourseRepository;
-import example.practice4.Repository.EnrollRepository;
-import example.practice4.Repository.StudentRepository;
 import org.springframework.transaction.annotation.Transactional;
+
+import example.Practice4.Dto.CourseDto;
+import example.Practice4.Dto.EnrollDto;
+import example.Practice4.Dto.StudentDto;
+import example.Practice4.Entity.CourseEntity;
+import example.Practice4.Entity.EnrollEntity;
+import example.Practice4.Entity.StudentEntity;
+import example.Practice4.Repository.CourseRepository;
+import example.Practice4.Repository.EnrollRepository;
+import example.Practice4.Repository.StudentRepository;
 
 @Service 
 public class P4Service {

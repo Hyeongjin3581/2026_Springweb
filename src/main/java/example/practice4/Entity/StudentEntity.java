@@ -1,9 +1,9 @@
-package example.practice4.Entity;
+package example.Practice4.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import example.practice4.BaseTime;
+import example.Practice4.BaseTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
