@@ -1,5 +1,5 @@
 package example.practice4;
 
-public class StudentDto {
+public class P4Controller {
 
 }

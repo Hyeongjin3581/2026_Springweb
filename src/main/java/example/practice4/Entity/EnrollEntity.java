@@ -1,5 +1,6 @@
-package example.practice4;
+package example.practice4.Entity;
 
+import example.practice4.BaseTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
