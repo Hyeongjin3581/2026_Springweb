@@ -1,5 +1,6 @@
-package example.Practice4_1.Model.Entity;
+package example.Practice404.Model.Entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +28,10 @@ public class CourseEntity extends BaseTime {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private  Integer courseId;
     private  String courseName;
+    private  LocalDateTime createAt;
+    private LocalDateTime upDateAt;
 
-    @OneToMany(mappedBy = "courseEntity ", cascade = CascadeType.ALL , fetch = FetchType.LAZY) // 1 : M  
+    @OneToMany(mappedBy = "courseEntity", cascade = CascadeType.ALL , fetch = FetchType.LAZY) // 1 : M  
     //@OneToMany(mappedBy = "매핑할 멤버변수명")  
     @ToString.Exclude // 순환참조방지
     @Builder.Default // 빌더패턴 사용시 초기값 사용

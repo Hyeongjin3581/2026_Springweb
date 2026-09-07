@@ -1,10 +1,10 @@
-package example.Practice4_1.Model.Dto;
+package example.Practice404.Model.Dto;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.Practice4_1.Model.Entity.CourseEntity;
+import example.Practice404.Model.Entity.CourseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +21,7 @@ public class CourseDto {
     // + 학생등록 
     //과정 자체를 저장하기 위한 필드라기보다, 과정 조회 시 
     // 학생 목록까지 같이 보여주기 위한 DTO용 필드라고 이해하는 게 좋아.
+    @Builder.Default
     private List<StudentDto> studentDtos = new ArrayList<>();
 
     public CourseEntity toEntity(){
@@ -29,12 +30,12 @@ public class CourseDto {
         .build();
     }
 
-    public static CourseDto from(CourseDto entity){
+    public static CourseDto from(CourseEntity entity){
         return CourseDto.builder()
         .courseId(entity.getCourseId())
         .courseName(entity.getCourseName())
-        .createAt(entity.getCreateAt())
-        .upDateAt(entity.getUpDateAt())
+        .createAt(entity.getCreateAt())     
+        .upDateAt(entity.getUpDateAt()) 
         .build();
     }
 }

@@ -1,4 +1,4 @@
-package example.Practice4_1;
+package example.Practice404;
 
 import java.time.LocalDateTime;
 

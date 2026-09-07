@@ -1,9 +1,9 @@
-package example.Practice4_1.Model.Entity;
+package example.Practice404.Model.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import example.Practice4_1.BaseTime;
+import example.Practice404.BaseTime;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

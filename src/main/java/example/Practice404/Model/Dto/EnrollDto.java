@@ -1,8 +1,8 @@
-package example.Practice4_1.Model.Dto;
+package example.Practice404.Model.Dto;
 
 import java.time.LocalDateTime;
 
-import example.Practice4.Entity.EnrollEntity;
+import example.Practice404.Model.Entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,14 +32,14 @@ public class EnrollDto {
         // 학생 FK , 과정 FK는 서비스에서 엔티티로 변환
         .build();
     }
-    public EnrollDto from(EnrollDto entity){
+    public EnrollDto from(EnrollEntity entity){
         return EnrollDto.builder()
         .enrollId(entity.getEnrollId())
         .status(entity.getStatus())
         // 과정엔티티 내 과정명만 조회
-        .courseName(entity.getCourseName())
+        .courseName(entity.getCourseEntity().getCourseName())     // Enroll Entity에서는 courseName 없다. courseEntity로 선언이 되었는데 getCourseName이 먹히겠냐. 그리고 CourseName이 아니라 CourseId이다.
         // 학생엔티티 내 학생명만 조회
-        .studentName(entity.getStudentName())
+        .studentName(entity.getStudentEntity().getStudentName())   // 이하동문. 이것도 studentName이 아니라 studentId이다.
 
         .createAt(entity.getCreateAt())
         .upDateAt(entity.getUpDateAt())
