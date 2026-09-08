@@ -7,6 +7,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,9 @@ import lombok.NoArgsConstructor;
 @EntityListeners (AuditingEntityListener.class) // 감시기능
 public class BaseTime {
     @CreatedDate // 
+    @Column(name = "created_at")
     private LocalDateTime createAt;
     @LastModifiedDate // 마지막 수정 시간 자동 저장
+    @Column(name = "updated_at")
     private LocalDateTime upDateAt;
 }

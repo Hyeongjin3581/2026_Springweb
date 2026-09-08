@@ -1,6 +1,7 @@
 package example.Practice404.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ import example.Practice404.Model.Dto.StudentDto;
 import example.Practice404.Model.Entity.StudentEntity;
 import example.Practice404.Model.Repository.StudentRepository;
 
+@Service
 public class StudentService {
     @Autowired private StudentRepository studentRepository;
 

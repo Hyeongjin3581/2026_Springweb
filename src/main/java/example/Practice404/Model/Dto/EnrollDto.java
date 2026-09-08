@@ -32,7 +32,7 @@ public class EnrollDto {
         // 학생 FK , 과정 FK는 서비스에서 엔티티로 변환
         .build();
     }
-    public EnrollDto from(EnrollEntity entity){
+    public static EnrollDto from(EnrollEntity entity){
         return EnrollDto.builder()
         .enrollId(entity.getEnrollId())
         .status(entity.getStatus())

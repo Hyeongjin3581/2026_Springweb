@@ -1,12 +1,11 @@
-package example.Practice404.Model.Entity;
+package example.Practice5.Model.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import example.Practice404.BaseTime;
+import example.Practice5.BaseTime;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,18 +18,21 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity 
-@Table(name="course")
+@Table(name="board")
 @NoArgsConstructor @AllArgsConstructor 
 @Data @Builder 
-public class CourseEntity extends BaseTime {
+public class BoardEntity extends BaseTime{
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private  Integer courseId;
-    private  String courseName;
 
-    @OneToMany(mappedBy = "courseEntity", cascade = CascadeType.ALL , fetch = FetchType.LAZY) // 1 : M  
-    //@OneToMany(mappedBy = "매핑할 멤버변수명")  
-    @ToString.Exclude // 순환참조방지
-    @Builder.Default // 빌더패턴 사용시 초기값 사용
-    private List<EnrollEntity> entities = new ArrayList<>();
+    private Integer id;
+    private String author;
+    private String password;
+    private String content;
+
+    @OneToMany(mappedBy = "boardEntity", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @Builder.Default
+    private List<CommentEntity> commentEntities = new ArrayList<>();
+
 }
