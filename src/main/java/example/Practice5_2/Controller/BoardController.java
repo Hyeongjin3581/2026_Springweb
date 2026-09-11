@@ -17,25 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController 
 @RequestMapping ("/api/board")
 public class BoardController {
+    // 의존성주입 (Service)
     @Autowired private BoardService boardService;
 
-    // 1. 게시글 등록 기능
+    // 1. 게시글 등록기능
     @PostMapping ("")
-    public boolean 게시물등록(@RequestBody BoardDto boardDto){
-        return boardService.게시글등록(boardDto);
+    public boolean 등록기능(@RequestBody  BoardDto boardDto){
+        return boardService.등록기능(boardDto);
     }
-    // 2. 목록조회
+
+    // 2. 목록 조회 기능
     @GetMapping ("")
-    public List<BoardDto>게시글전체조회(){
-        return boardService.게시글전체조회();
+    public List<BoardDto>전체조회(){
+        return boardService.전체조회();
     }
-
-    //3. 게시글 삭제
-    @DeleteMapping("")
-    public boolean 게시글삭제(
-        @RequestParam (name ="id")Integer id,
-        @RequestParam (name = "password")String password){
-            return boardService.게시글삭제(id , password);
+    // 3. 게시글 삭제 기능
+    @DeleteMapping ("")
+    public boolean 삭제기능(
+        @RequestParam(name="id") Integer id,
+        @RequestParam(name="password") String password ){
+            return boardService.삭제기능(id , password);
         }
-
 }
+

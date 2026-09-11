@@ -96,3 +96,6 @@ printScore( 70 , printSuccess , (massage) => {console.log('실패 ' + massage)})
 const backLoad = async () => { 
     const reponse = await axios(); 
 }
+
+//브라우저 캐싱은 한 번 받아온 파일을 브라우저에 저장해두고, 다음에 같은 파일이 필요할 때 다시 서버에서 전부 받지 않고 저장된 걸 재사용하는 기능이야. 
+

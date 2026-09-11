@@ -18,22 +18,19 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity 
-@Table(name = "board")
-@NoArgsConstructor @AllArgsConstructor @Builder 
-@Data  
-public class BoardEntity extends BaseTime {
-    @Id 
+@Table(name="board")
+@NoArgsConstructor @AllArgsConstructor @Builder @Data 
+public class BoardEntity extends BaseTime{
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+
+    private Integer id;
     private String author;
     private String password;
     private String content;
 
-
-    @OneToMany (mappedBy = "boardEntity" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "boardEntity",cascade = CascadeType.ALL)
     @ToString.Exclude
     @Builder.Default
-    private  List<CommentEntity> commentEntities = new ArrayList<>();
-
-    
+    private List<CommentEntity> commentEntities = new ArrayList<>();
 }

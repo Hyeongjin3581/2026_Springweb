@@ -14,20 +14,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity 
-@Table (name = "comment")
-@NoArgsConstructor @AllArgsConstructor @Builder 
-@Data 
+@Table(name="comment")
+@NoArgsConstructor @AllArgsConstructor @Builder @Data 
 public class CommentEntity extends BaseTime{
     @Id 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer commentId;
     private String author;
     private String password;
     private String content;
 
-    // M : 1 구조.
+    @JoinColumn(name="board_id")
     @ManyToOne 
-    @JoinColumn(name = "board_id")
-    private BoardEntity boardEntity;
+    private BoardEntity boardEntity; 
 }
+

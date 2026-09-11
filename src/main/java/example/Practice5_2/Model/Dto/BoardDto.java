@@ -4,15 +4,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import example.Practice5_2.Model.Entity.BoardEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@NoArgsConstructor @AllArgsConstructor @Builder 
-@Data 
+@NoArgsConstructor @AllArgsConstructor @Builder @Data 
 public class BoardDto {
     private Integer id;
     private String author;
@@ -21,12 +20,11 @@ public class BoardDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    // 추후 comments를 Get 하기 위해 사용.
+    // boardDto에서 추후에 댓글 목록이 함께 포함되어야 함.
     @Builder.Default
-    private List<CommentDto> comments = new ArrayList<>();
+    public List<CommentDto> comments = new ArrayList<>();
 
-
-    // Dto를 Entity로
+    // Dto에서 Entity로 변환.
     public BoardEntity toEntity(){
         return BoardEntity.builder()
         .author(this.author)
@@ -34,7 +32,10 @@ public class BoardDto {
         .content(this.content)
         .build();
     }
+    // 1. 생성자에 매개변수대입여부. 
 
+    // Entity 를 Dto로 변경 
+    // 접근제어자 / 고정..? / 반환타입 / 메소드명 / 매개타입 / 매개변수
     public static BoardDto from(BoardEntity entity){
         return BoardDto.builder()
         .id(entity.getId())

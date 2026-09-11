@@ -8,8 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor @AllArgsConstructor @Builder 
-@Data 
+@NoArgsConstructor @AllArgsConstructor @Builder @Data 
 public class CommentDto {
     private Integer commentId;
     private String author;
@@ -18,8 +17,10 @@ public class CommentDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    // ! board_id 작성해야함.
     private Integer boardId;
 
+    // Dto에서 Entity로 변환
     public CommentEntity toEntity(){
         return CommentEntity.builder()
         .author(this.author)
@@ -27,6 +28,8 @@ public class CommentDto {
         .content(this.content)
         .build();
     }
+
+    // Entity에서 Dto로 변환
     public static CommentDto from(CommentEntity entity){
         return CommentDto.builder()
         .commentId(entity.getCommentId())

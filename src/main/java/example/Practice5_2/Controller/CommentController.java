@@ -12,21 +12,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController 
-@RequestMapping ("/api/board/comments")
+@RequestMapping("/api/board/comments")
 public class CommentController {
+    // 의존성주입 (Service)
     @Autowired private CommentService commentService;
 
-    // 1. 댓글 등록기능
+    // 1. 댓글 등록 기능
     @PostMapping ("")
     public boolean 댓글등록(@RequestBody CommentDto commentDto){
         return commentService.댓글등록(commentDto);
-    } 
+    }
 
-    // 2. 댓글 삭제기능
+    // 2. 댓글 삭제 기능
     @DeleteMapping ("")
     public boolean 댓글삭제(
-        @RequestParam (name ="commentId")Integer commentId,
-        @RequestParam (name ="password")String password){
+        @RequestParam(name="commentId") Integer commentId,
+        @RequestParam(name="password") String password){
             return commentService.댓글삭제(commentId , password);
         }
 }
