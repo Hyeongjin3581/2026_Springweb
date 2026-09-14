@@ -1,34 +1,45 @@
 package example.totalpractice1.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import example.totalpractice1.model.dto.CategoryDto;
+import example.totalpractice1.service.CategoryService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-@RestController 
-@RequestMapping("/api/categories")
+import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+// asdf
+@CrossOrigin (value = "http://localhost:5173")
+@RestController @RequestMapping ("/api/categories")
+@RequiredArgsConstructor 
 public class CategoryController {
-    @Autowired private CategoryService categoryService;
+    private final CategoryService categoryService;
 
-    // 1. 카테고리 등록
+    // 카테고리 등록 기능
     @PostMapping("")
-    public CategoryDto 카테고리등록(@RequestBody CategoryDto categoryDto){
-        return categoryService.카테고리등록(categoryDto);
+    public CategoryDto save(@RequestBody CategoryDto categoryDto) {
+        return categoryService.save(categoryDto);
     }
 
-    // 2. 카테고리 전체 조회기능
+    // 카테고리 전체 조회 기능
     @GetMapping("")
-    public List<CategoryDto>전체조회(){
-        return categoryService.전체조회();
+    public List<CategoryDto> findAll() {
+        return categoryService.findAll();
     }
 
-    // 3. 카테고리 삭제
-    @DeleteMapping("")
+    // 카테고리 삭제 기능
+    @DeleteMapping ("")
+    public boolean delete(@RequestParam (name = "cno") Integer cno) {
+        return categoryService.delete(cno);
+    }
+    
+    
 }

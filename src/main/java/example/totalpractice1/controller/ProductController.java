@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.totalpractice1.Model.dto.ProductDto;
+import example.totalpractice1.model.dto.ProductDto;
 import example.totalpractice1.service.ProductService;
 
 @RestController 

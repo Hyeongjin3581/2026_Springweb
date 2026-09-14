@@ -30,7 +30,7 @@ public class ProductEntity {
     
     @JoinColumn(name="cno")
     @ManyToOne 
-    private CategoryEntity categoryEntity; 
+    private CategoryEntity categoryEntity;
 
     @OneToMany (mappedBy = "productEntity" , cascade = CascadeType.ALL)
     @ToString.Exclude

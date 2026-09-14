@@ -1,4 +1,4 @@
-package example.totalpractice1.Model.Repository;
+package example.totalpractice1.model.repository;
 
 public class ReviewRepository {
 

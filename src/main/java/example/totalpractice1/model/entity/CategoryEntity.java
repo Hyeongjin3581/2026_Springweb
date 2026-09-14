@@ -1,4 +1,4 @@
-package example.totalpractice1.Model.entity;
+package example.totalpractice1.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;

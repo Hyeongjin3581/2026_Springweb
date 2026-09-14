@@ -1,7 +1,7 @@
-package example.totalpractice1.Model.dto;
+package example.totalpractice1.model.dto;
 
 
-import example.totalpractice1.Model.entity.CategoryEntity;
+import example.totalpractice1.model.entity.CategoryEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package example.totalpractice1.Model.dto;
+package example.totalpractice1.model.dto;
 
 public class ReviewDto {
 

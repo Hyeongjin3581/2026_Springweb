@@ -1,8 +1,5 @@
 package example.totalpractice1.model.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import example.totalpractice1.model.entity.ProductEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,16 +22,12 @@ public class ProductDto {
         .build();
     }
 
-    // 제품 전체 조회시 카테고리 까지 함께 조회
-    @Builder.Default
-    private List<CategoryDto> categorys = new ArrayList<>();
-
     public static ProductDto from(ProductEntity entity){
         return ProductDto.builder()
         .bno(entity.getBno())
         .name(entity.getName())
         .price(entity.getPrice())
-        .categoryCno(entity.getCategoryEntity().getCno())
+        .categoryCno(entity.getCategoryEntity() == null ? null : entity.getCategoryEntity().getCno())
         .build();
     }
 
