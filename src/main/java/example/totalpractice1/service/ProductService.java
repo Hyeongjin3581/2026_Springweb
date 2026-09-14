@@ -21,12 +21,12 @@ public class ProductService {
 
     // 1. 제품 등록 기능
     public ProductDto 제품등록(ProductDto productDto){
-        if(productDto.getCategoryCno() == null){
+        if(productDto.getCno() == null){
             return null;
         }
 
         ProductEntity productEntity = productDto.toEntity();
-        CategoryEntity categoryEntity = categoryRepository.findById(productDto.getCategoryCno())
+        CategoryEntity categoryEntity = categoryRepository.findById(productDto.getCno())
         .orElse(null);
         if(categoryEntity == null){
             return null;
@@ -56,11 +56,11 @@ public class ProductService {
             entity.setBno(productDto.getBno());
             entity.setName(productDto.getName());
             entity.setPrice(productDto.getPrice());
-            if(productDto.getCategoryCno() == null){
+            if(productDto.getCno() == null){
                 return false;
             }
 
-            CategoryEntity categoryEntity = categoryRepository.findById(productDto.getCategoryCno())
+            CategoryEntity categoryEntity = categoryRepository.findById(productDto.getCno())
             .orElse(null);
             if(categoryEntity == null){
                 return false;

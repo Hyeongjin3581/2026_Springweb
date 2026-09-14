@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter @Setter @ToString @Builder 
 @NoArgsConstructor @AllArgsConstructor 
 public class ReviewDto {
-    private Integer mo;
+    private Integer rno;
     private Integer bno;
 
     private String reviewer;
@@ -21,7 +21,7 @@ public class ReviewDto {
 
     public ReviewEntity toEntity(){
         return ReviewEntity.builder()
-            .mo(this.mo)
+            .rno(this.rno)
             .reviewer(this.reviewer)
             .content(this.content)
             .rating(this.rating)
@@ -30,7 +30,8 @@ public class ReviewDto {
 
     public static ReviewDto from(ReviewEntity reviewEntity){
         return ReviewDto.builder()
-            .mo(reviewEntity.getMo())
+            .rno(reviewEntity.getRno())
+            .bno(reviewEntity.getProductEntity().getBno())
             .reviewer(reviewEntity.getReviewer())
             .content(reviewEntity.getContent())
             .rating(reviewEntity.getRating())

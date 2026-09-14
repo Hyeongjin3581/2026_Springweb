@@ -22,13 +22,25 @@ public class ReviewService {
         return productEntity.getReviewEntities().stream().map(ReviewDto::from).toList();
     }
 
-    public boolean save(ReviewDto reviewDto){
-        ReviewEntity entity = reviewDto.toEntity();
-        reviewRepository.save(entity);
-        if(entity.getMo() >= 1){
-            return true;
-        }
+    public boolean save(ReviewDto reviewDto) {
+    ReviewEntity entity = reviewDto.toEntity();
 
-        return false;
+    ProductEntity product = productRepository.findById(reviewDto.getBno()).orElse(null);
+    entity.setProductEntity(product);
+
+    reviewRepository.save(entity);
+    if (entity.getRno() >= 1) {
+        return true;
+    }
+
+    return false;
+    }
+
+    public boolean delete(Integer rno) {
+        if(!reviewRepository.existsById(rno)){
+            return false;
+        }
+        reviewRepository.deleteById(rno);
+        return true;
     }
 }

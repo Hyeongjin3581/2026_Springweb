@@ -30,4 +30,9 @@ public class ReviewController {
     public boolean save(@RequestBody ReviewDto reviewDto){
         return reviewService.save(reviewDto);
     }
+
+    @DeleteMapping("")
+    public boolean delete(@RequestParam(name="rno") Integer rno){
+        return reviewService.delete(rno);
+    }
 }

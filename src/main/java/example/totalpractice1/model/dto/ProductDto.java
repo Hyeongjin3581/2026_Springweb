@@ -13,7 +13,7 @@ public class ProductDto {
     private Integer price;
 
     // 카테고리 cno 멤버변수에 등록.
-    private Integer categoryCno;
+    private Integer cno;
 
     public ProductEntity toEntity(){
         return ProductEntity.builder()
@@ -27,7 +27,7 @@ public class ProductDto {
         .bno(entity.getBno())
         .name(entity.getName())
         .price(entity.getPrice())
-        .categoryCno(entity.getCategoryEntity() == null ? null : entity.getCategoryEntity().getCno())
+        .cno(entity.getCategoryEntity() == null ? null : entity.getCategoryEntity().getCno())
         .build();
     }
 

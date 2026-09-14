@@ -22,7 +22,7 @@ public class ReviewEntity {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer mo;
+    private Integer rno;
 
     @Column
     private String reviewer;
