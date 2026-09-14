@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import example.totalpractice1.model.entity.ProductEntity;
 
+
+
 @Repository 
 public interface ProductRepository extends JpaRepository<ProductEntity , Integer>{
 

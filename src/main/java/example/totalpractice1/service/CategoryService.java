@@ -18,7 +18,8 @@ public class CategoryService {
     public CategoryDto save(CategoryDto categoryDto) {
         CategoryEntity categoryEntity = categoryDto.toEntity();
         CategoryEntity savedEntity = categoryRepository.save(categoryEntity);
-        return CategoryDto.from(savedEntity);
+        if( savedEntity.getCno() >= 1 ) return categoryDto;
+        return null;
     }
 
     // 카테고리 전체 조회 기능
