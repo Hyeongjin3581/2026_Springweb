@@ -29,11 +29,9 @@ public class ApiController {
     }
 
     // 3.
-    @GetMapping("/api/test03")
-    public List<Map<String, Object>>test3() {
-        return apiService.test03();
+    @GetMapping("/api/test3")
+    public List<Map<String , Object>>test3(){
+        return apiService.test3();
     }
     
-    
-
 }
