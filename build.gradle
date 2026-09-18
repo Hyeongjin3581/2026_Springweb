@@ -14,7 +14,7 @@ java {
 }
 
 springBoot {
-	mainClass = 'example.totalpractice1.AppStart'
+	mainClass = 'example.day08.AppStart'
 }
 
 repositories {
