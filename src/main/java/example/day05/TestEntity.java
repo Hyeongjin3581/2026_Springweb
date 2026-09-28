@@ -36,5 +36,5 @@ public class TestEntity extends BaseTime {
 @Column (name="name",nullable = true/false) : not null 구별가능
 @Column (name="name",nullable = true/false , length = "문자열길이~255" , unique(중복구별)) 
 @Column( columnDefinition = "SQL 구문")
-@Column(insertable =  inser여부 , updatable = update 여부)
+@Column(insertable =  insert여부 , updatable = update 여부)
 */

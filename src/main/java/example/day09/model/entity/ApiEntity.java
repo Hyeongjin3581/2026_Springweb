@@ -1,5 +1,6 @@
 package example.day09.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,11 +12,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity 
-@Table (name="api")
+@Table (name="board")
 @NoArgsConstructor @AllArgsConstructor @Builder @Data 
 public class ApiEntity {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Integer idx;
+    @Column
+    private String subject;
+    @Column
+    private String name;
+    @Column
+    private String regdate;
+    @Column
+    private String content;
 
-    private Integer id;
+
+    
 }
