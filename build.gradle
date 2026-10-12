@@ -67,5 +67,5 @@ tasks.named('test') {
 }
 
 tasks.named('bootRun') {
-    mainClass = 'example.day11.AppStart'
+    mainClass = 'example.day14.AppStart'
 }
