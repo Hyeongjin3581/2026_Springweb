@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 public class LLMController {
 
     // 1. 
@@ -25,5 +25,10 @@ public class LLMController {
     @GetMapping("/chat2")
     public String chat2(){
         return LLMService.chat2();
+    }
+
+    @GetMapping("/chat3")
+    public String chat3(@RequestParam("topic") String topic){
+    return LLMService.chat3(topic);
     }
 }

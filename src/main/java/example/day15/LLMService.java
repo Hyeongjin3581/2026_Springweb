@@ -69,4 +69,30 @@ public class LLMService {
         }catch(Exception e ){ System.out.println( e );}
         return null;
     }
+
+    // 4. 프롬프트 연결 (질문 -> 답 -> 질문 -> 답 -> 질문 -> 답  )
+    public String chat3( String topic ){
+        // 1. 프롬프트1 작성
+        // String.format ("문자열 형식문자1 문자열" , 값 1);
+        String prompt1 = String.format("""
+                고객 배송 불만 접수 내용 : %s
+                위 내용에서 1.귀책 사유 2. 상품 피해 심각도 판단해 3줄 요약해줘.                
+                """ , topic);
+        String result1 = LLMCall(prompt1);
+        // 2. 프롬프트2 작성
+        String prompt2 = String.format("""
+                접수내용 : %s
+                1차 분석 결과 : %s
+                위 분석을 토대로 배송팀의 구체적인 조치 방안 제안해줘.
+                """ , topic , result1);
+        String result2 = LLMCall(prompt2);
+        // 3. 프롬프트3 작성
+        String prompt3 = String.format("""
+                1차 분석 : %s
+                2차 조치 방안 : %s
+                위 내용으로 고객에게 보낼 친절한 메시지 초안 작성
+                """, result1 , result2);
+        String result3 = LLMCall(prompt3);
+        return result3;
+    }
 }
